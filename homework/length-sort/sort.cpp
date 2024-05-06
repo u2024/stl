@@ -19,6 +19,7 @@ std::deque<std::string> lengthSort(std::forward_list<std::string> &list)
             auto y = deque[k].size();
             if(x < y)
             {
+                x = deque[k].size();
                 std::swap(deque[i], deque[k]);
             }
         }
