@@ -1,7 +1,7 @@
 #include <forward_list>
 #include <iostream>
 #include <string>
-
+#include <deque>
 #include "sort.hpp"
 
 template <typename Container>
