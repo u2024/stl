@@ -2,7 +2,7 @@
 #include <forward_list>
 #include <deque>
 
-auto lenghtSort(std::forward_list<std::string> &list)
+auto lengthSort(std::forward_list<std::string> &list)
 {
     std::deque<std::string> deque;
     list.sort();
