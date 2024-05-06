@@ -1,6 +1,6 @@
 #pragma once
 
-auto lenght_sort(std::forward_list<std::string> &list)
+auto lenghtSort(std::forward_list<std::string> &list)
 {
     std::deque<std::string> deque;
     list.sort();
