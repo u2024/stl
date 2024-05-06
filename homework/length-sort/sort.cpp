@@ -3,7 +3,7 @@
 #include <deque>
 #include "sort.hpp"
 
-auto lengthSort(std::forward_list<std::string> &list)
+std::deque<std::string> lengthSort(std::forward_list<std::string> &list)
 {
     std::deque<std::string> deque;
     list.sort();
