@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-auto removeVowels(std::vector<std::string> &vec)
+void removeVowels(std::vector<std::string> &vec)
 {
     for(auto &i : vec)
     {
