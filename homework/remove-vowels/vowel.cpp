@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <cctype>
 
 void removeVowels(std::vector<std::string> &vec)
 {
@@ -9,7 +10,7 @@ void removeVowels(std::vector<std::string> &vec)
         auto k = i.end();
         while (k != i.begin() - 1)
         {
-            if(*k == 'a' || *k == 'e' || *k == 'i' || *k == 'o' || *k == 'u' || *k == 'y')
+            if(std::tolower(*k) == 'a' || std::tolower(*k) == 'e' || std::tolower(*k) == 'i' || std::tolower(*k) == 'o' || std::tolower(*k) == 'u' || std::tolower(*k) == 'y')
             {
                 i.erase(k);
             }
