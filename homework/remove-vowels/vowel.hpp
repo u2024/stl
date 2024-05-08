@@ -1,3 +1,3 @@
 #pragma once
 
-auto removeVowels(std::vector<std::string> &vec);
+void removeVowels(std::vector<std::string> &vec);
