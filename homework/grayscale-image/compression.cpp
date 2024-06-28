@@ -3,7 +3,7 @@
 #include <array>
 #include <cstdint>
 
-std::vector<std::pair<uint8_t, uint8_t>> compressGrayscale(std::array<std::array<uint8_t, 240>, 160>& array)
+std::vector<std::pair<uint8_t, uint8_t>> compressGrayscale(std::array<std::array<uint8_t, width>, height>& array)
 {
     std::vector<std::pair<uint8_t, uint8_t>> vec;
     uint8_t count = 0, value1 = array[0][0];
@@ -29,9 +29,9 @@ std::vector<std::pair<uint8_t, uint8_t>> compressGrayscale(std::array<std::array
     return vec;
 }
 
-std::array<std::array<uint8_t, 240>, 160> decompressGrayscale(std::vector<std::pair<uint8_t, uint8_t>> &vec)
+std::array<std::array<uint8_t, width>, height> decompressGrayscale(std::vector<std::pair<uint8_t, uint8_t>> &vec)
 {
-    std::array<std::array<uint8_t, 240>, 160> array;
+    std::array<std::array<uint8_t, width>, height> array;
     int l = 0, m = 0;
     for(int i = 0; i < array.size(); ++i)
     {
