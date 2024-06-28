@@ -28,6 +28,8 @@ std::vector<std::pair<uint8_t, uint8_t>> compressGrayscale(std::array<std::array
         {
             vec.push_back(std::make_pair(value1, count));
             count = 0;
+            if(k + 1 != array.size())
+                value1 = array[k + 1][0];
         }
     }
     return vec;
