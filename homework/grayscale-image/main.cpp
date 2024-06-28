@@ -3,7 +3,7 @@
 #include <vector>
 #include <utility>
 #include <cstdint>
-#include "grayscale.hpp"
+#include "compression.hpp"
 // TODO: include
 
 std::array<std::array<uint8_t, 32>, 32> generateNinja() {
