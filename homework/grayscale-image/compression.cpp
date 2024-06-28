@@ -24,7 +24,7 @@ std::vector<std::pair<uint8_t, uint8_t>> compressGrayscale(std::array<std::array
             }
             else ++count;
         }
-        if(count != 0 && k == array.size() - 1)
+        if(count != 0)
         {
             vec.push_back(std::make_pair(value1, count));
             count = 0;
