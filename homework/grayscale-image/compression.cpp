@@ -11,9 +11,9 @@ std::vector<std::pair<uint8_t, uint8_t>> compressGrayscale(std::array<std::array
 {
     std::vector<std::pair<uint8_t, uint8_t>> vec;
     uint8_t count = 0, value1 = array[0][0];
-    for(int k = 0; k < array.size(); ++k)
+    for(auto k = 0; k < array.size(); ++k)
     {
-        for(int i = 0; i < array[k].size(); ++i)
+        for(auto i = 0; i < array[k].size(); ++i)
         {
             if(array[k][i] != value1 && count != 0)
             {
@@ -37,9 +37,9 @@ std::array<std::array<uint8_t, width>, height> decompressGrayscale(std::vector<s
 {
     std::array<std::array<uint8_t, width>, height> array;
     int l = 0, m = 0;
-    for(int i = 0; i < array.size(); ++i)
+    for(auto i = 0; i < array.size(); ++i)
     {
-        for(int k = 0; k < array[i].size(); ++k)
+        for(auto k = 0; k < array[i].size(); ++k)
         {
             if(vec[l].second != m)
             {
