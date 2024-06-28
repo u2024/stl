@@ -1,6 +1,9 @@
 #include <array>
 #include <forward_list>
-
+#include <vector>
+#include <utility>
+#include <cstdint>
+#include "grayscale.hpp"
 // TODO: include
 
 std::array<std::array<uint8_t, 32>, 32> generateNinja() {
