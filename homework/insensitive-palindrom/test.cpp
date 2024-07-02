@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include <algorithm>
 #include <string>
+#include "insensitive_palindrom.hpp"
 
 class InsensitivePalindromFixture : public ::testing::TestWithParam<std::pair<std::string, bool>> {
 };
