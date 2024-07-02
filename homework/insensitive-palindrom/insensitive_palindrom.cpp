@@ -12,7 +12,7 @@ bool is_palindrome(std::string str)
             {
                 ++i;
             }
-            while(!isalnum(str[k])
+            while(!isalnum(str[k]))
             {
                 --k;
             }
