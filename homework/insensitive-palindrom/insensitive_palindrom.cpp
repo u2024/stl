@@ -8,11 +8,11 @@ bool is_palindrome(std::string str)
     {
         for(int k = str.size() - 1; k > -1 && b; --k)
         {
-            while(isblank(str[i]) || ispunct(str[i]) || iscntrl(str[i]))
+            while(!isalnum(str[i]))
             {
                 ++i;
             }
-            while(isblank(str[k]) || ispunct(str[k]) || iscntrl(str[k]))
+            while(!isalnum(str[k])
             {
                 --k;
             }
