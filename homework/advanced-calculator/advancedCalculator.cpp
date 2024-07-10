@@ -6,7 +6,7 @@
 
 enum class ErrorCode
 {
-    Ok,
+    OK,
     BadCharacter, // znak inny niż liczba
     BadFormat, // zły format komendy np. + 5 4, powinno być 4 + 5
     DivideBy0, // dzielenie przez 0
