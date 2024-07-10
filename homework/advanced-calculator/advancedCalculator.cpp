@@ -33,7 +33,7 @@ char seperate(std::string input, double &first, double &second)
         {
             continue;
         }
-        else if(isdigit(input[i]) || input[i] == '.')
+        else if(isdigit(input[i]) || input[i] == '.' || input[i] == '-' && isdigit(input[i + 1]))
         {
             if(!k)
             {
