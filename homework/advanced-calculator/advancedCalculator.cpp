@@ -99,19 +99,19 @@ ErrorCode process(std::string input, double* out)
         case '+':
         {
             *out = map['+'](first, second);
-            return ErrorCode::Ok;
+            return ErrorCode::OK;
             break;
         }
         case '-':
         {
             *out = map['-'](first, second);
-            return ErrorCode::Ok;
+            return ErrorCode::OK;
             break;
         }
         case '*':
         {
             *out = map['*'](first, second);
-            return ErrorCode::Ok;
+            return ErrorCode::OK;
             break;
         }
         case '/':
@@ -124,7 +124,7 @@ ErrorCode process(std::string input, double* out)
             else
             {
                 *out = map['/'](first, second);
-                return ErrorCode::Ok;
+                return ErrorCode::OK;
                 break;
             }
         }
@@ -137,14 +137,14 @@ ErrorCode process(std::string input, double* out)
             else
             {
                 *out = map['%'](first, second);
-                return ErrorCode::Ok;
+                return ErrorCode::OK;
                 break;
             }
         }
         case '^':
         {
             *out = map['^'](first, second);
-            return ErrorCode::Ok;
+            return ErrorCode::OK;
             break;
         }
         case '$':
@@ -157,19 +157,18 @@ ErrorCode process(std::string input, double* out)
             else
             {
                 *out = map['$'](first, second);
-                return ErrorCode::Ok;
+                return ErrorCode::OK;
                 break;
             }
         }
         case '!':
         {
             *out = map['!'](first, second);
-            return ErrorCode::Ok;
+            return ErrorCode::OK;
             break;
         }
         default:
             return ErrorCode::BadFormat;
             break;
     }
-
 }
