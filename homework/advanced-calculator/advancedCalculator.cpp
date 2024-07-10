@@ -33,6 +33,16 @@ char seperate(std::string input, double &first, double &second)
         {
             continue;
         }
+        if(ispunct(input[i]) && input[i] != '.')
+        {
+            k = !k;
+            if(!m)
+            {
+                operation = input[i];
+                m = !m;
+            }
+            else operation = '0';
+        }
         else if(isdigit(input[i]) || input[i] == '.' || input[i] == '-' && isdigit(input[i + 1]))
         {
             if(!k)
@@ -45,16 +55,6 @@ char seperate(std::string input, double &first, double &second)
                 s += input[i];
                 continue;
             }
-        }
-        if(ispunct(input[i]) && input[i] != '.')
-        {
-            k = !k;
-            if(!m)
-            {
-                operation = input[i];
-                m = !m;
-            }
-            else operation = '0';
         }
         else if(isalpha(input[i]))
         {
