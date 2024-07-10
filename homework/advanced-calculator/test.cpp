@@ -5,6 +5,16 @@
 #include "advancedCalculator.hpp"
 #include "gtest/gtest.h"
 
+enum class ErrorCode
+{
+    OK,
+    BadCharacter, // znak inny niż liczba
+    BadFormat, // zły format komendy np. + 5 4, powinno być 4 + 5
+    DivideBy0, // dzielenie przez 0
+    SqrtOfNegativeNumber, // pierwiastek z liczby ujemnej
+    ModuleOfNonIntegerValue // próba obliczenia % na liczbie niecałkowitej
+};
+
 bool cmp(double first, double second, double epsilon = 0.5) {
     return (fabs(first - second) < epsilon);
 }
