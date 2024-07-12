@@ -14,6 +14,15 @@ enum class ErrorCode
     ModuleOfNonIntegerValue // próba obliczenia % na liczbie niecałkowitej
 };
 
+bool is_operation(char a)
+{
+    if(a != '+' || a != '-' || a != '*' || a != '/' || a != '!' || a != '^' || a != '#' || a != '%')
+    {
+        return false;
+    }
+    else return true;
+}
+
 bool is_integer(double &a)
 {
     if(a - std::floor(a) != 0)
@@ -35,7 +44,7 @@ char seperate(std::string input, double &first, double &second)
         {
             continue;
         }
-        else if(isdigit(input[i]) || input[i] == '.' || input[i] == '-' && isdigit(input[i + 1]))
+        else if(isdigit(input[i]) || input[i] == '.' || (input[i] == '-' && isdigit(input[i + 1])))
         {
             if(!k)
             {
@@ -56,7 +65,7 @@ char seperate(std::string input, double &first, double &second)
                 continue;
             }
         }
-        if(ispunct(input[i]) && input[i] != '.')
+        if(is_operation(input[i]) && input[i] != '.')
         {
             if(f.size() > 0)
             {
@@ -67,11 +76,11 @@ char seperate(std::string input, double &first, double &second)
                 operation = input[i];
                 m = !m;
             }
-            else operation = '0';
+            else return 'a';
         }
-        else if(isalpha(input[i]))
+        else
         {
-            operation = 'a';
+            return 'a';
             break;
         }
     }
@@ -85,7 +94,7 @@ char seperate(std::string input, double &first, double &second)
     }
     if(operation != '!' && (f == "" || s == ""))
     {
-        operation = '0';
+        return '0';
     }
     if(second < 0 && operation == 'n')
     {
@@ -93,11 +102,11 @@ char seperate(std::string input, double &first, double &second)
     }
     else if(operation == 'n')
     {
-        operation = '0';
+        return '0';
     }
     if(kr1 > 1 || kr2 > 1)
     {
-        operation = '0';
+        return '0';
     }
     return operation;
 }
