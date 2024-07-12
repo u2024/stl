@@ -25,23 +25,13 @@ bool is_integer(double &a)
 
 char seperate(std::string input, double &first, double &second)
 {
-    bool k = false, m = false; char operation = '0';
+    bool k = false, m = false; char operation = 'n';
     std::string f = "", s = "";
     for(long unsigned i = 0; i < input.size(); ++i)
     {
         if(isspace(input[i]))
         {
             continue;
-        }
-        if(ispunct(input[i]) && input[i] != '.')
-        {
-            k = !k;
-            if(!m)
-            {
-                operation = input[i];
-                m = !m;
-            }
-            else operation = '0';
         }
         else if(isdigit(input[i]) || input[i] == '.' || input[i] == '-' && isdigit(input[i + 1]))
         {
@@ -56,6 +46,16 @@ char seperate(std::string input, double &first, double &second)
                 continue;
             }
         }
+        else if(ispunct(input[i]) && input[i] != '.')
+        {
+            k = !k;
+            if(!m)
+            {
+                operation = input[i];
+                m = !m;
+            }
+            else operation = '0';
+        }
         else if(isalpha(input[i]))
         {
             operation = 'a';
@@ -66,6 +66,14 @@ char seperate(std::string input, double &first, double &second)
     {
         first = std::stod(f);
         second = std::stod(s);
+    }
+    if(second < 0 && operation == 'n')
+    {
+        operation == '-';
+    }
+    else if(operation == 'n')
+    {
+        operation = '0';
     }
     return operation;
 }
