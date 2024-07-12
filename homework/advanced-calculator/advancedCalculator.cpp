@@ -83,13 +83,13 @@ char seperate(std::string input, double &first, double &second)
     {
         second = std::stod(s);
     }
-    if(f == "" && s.size() > 0)
+    if(operation != '!' && (f == "" || s == ""))
     {
-        operation == '0';
+        operation = '0';
     }
     if(second < 0 && operation == 'n')
     {
-        operation == '-';
+        operation = '-';
     }
     else if(operation == 'n')
     {
