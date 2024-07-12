@@ -62,9 +62,12 @@ char seperate(std::string input, double &first, double &second)
             break;
         }
     }
-    if(f.size() != 0 && s.size() != 0)
+    if(f.size() != 0 &&)
     {
         first = std::stod(f);
+    }
+    if(s.size() != 0)
+    {
         second = std::stod(s);
     }
     if(second < 0 && operation == 'n')
