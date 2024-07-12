@@ -91,7 +91,7 @@ ErrorCode process(std::string input, double* out)
         {'%', [](double &a, double &b){ return std::fmod(a, b); }},
         {'^', [](double &a, double &b){ return std::pow(a, b); }},
         {'$', [](double &a, double &b){ return std::pow(a, 1 / b); }},
-        {'!', [](double &a, double &b){ return std::tgamma(a); }}
+        {'!', [](double &a, double &b){ return std::tgamma(a + 1); }}
     };
     double first = 0, second = 0;
     char operation = seperate(input, first, second);
