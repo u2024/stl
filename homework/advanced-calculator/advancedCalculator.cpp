@@ -6,7 +6,7 @@
 
 enum class ErrorCode
 {
-    OK,
+    Ok,
     BadCharacter, // znak inny niż liczba
     BadFormat, // zły format komendy np. + 5 4, powinno być 4 + 5
     DivideBy0, // dzielenie przez 0
@@ -25,7 +25,9 @@ bool is_integer(double &a)
 
 char seperate(std::string input, double &first, double &second)
 {
-    bool k = false, m = false; char operation = 'n';
+    char operation = 'n';
+    int kr1 = 0, kr2 = 0; //ile jest kropek w liczbie
+    bool k = false, m = false; // czy op jest na 2 msc, czy op zost pobrana
     std::string f = "", s = "";
     for(long unsigned i = 0; i < input.size(); ++i)
     {
@@ -37,18 +39,29 @@ char seperate(std::string input, double &first, double &second)
         {
             if(!k)
             {
+                if(input[i] == '.')
+                {
+                    ++kr1;
+                }
                 f += input[i];
                 continue;
             }
             else 
             {
+                if(input[i] == '.')
+                {
+                    ++kr2;
+                }
                 s += input[i];
                 continue;
             }
         }
-        else if(ispunct(input[i]) && input[i] != '.')
+        if(ispunct(input[i]) && input[i] != '.')
         {
-            k = !k;
+            if(f.size() > 0)
+            {
+                k = !k;
+            }
             if(!m)
             {
                 operation = input[i];
@@ -70,11 +83,19 @@ char seperate(std::string input, double &first, double &second)
     {
         second = std::stod(s);
     }
+    if(f == "" && s.size() > 0)
+    {
+        operation == '0';
+    }
     if(second < 0 && operation == 'n')
     {
         operation == '-';
     }
     else if(operation == 'n')
+    {
+        operation = '0';
+    }
+    if(kr1 > 1 || kr2 > 1)
     {
         operation = '0';
     }
@@ -110,19 +131,19 @@ ErrorCode process(std::string input, double* out)
         case '+':
         {
             *out = map['+'](first, second);
-            return ErrorCode::OK;
+            return ErrorCode::Ok;
             break;
         }
         case '-':
         {
             *out = map['-'](first, second);
-            return ErrorCode::OK;
+            return ErrorCode::Ok;
             break;
         }
         case '*':
         {
             *out = map['*'](first, second);
-            return ErrorCode::OK;
+            return ErrorCode::Ok;
             break;
         }
         case '/':
@@ -135,7 +156,7 @@ ErrorCode process(std::string input, double* out)
             else
             {
                 *out = map['/'](first, second);
-                return ErrorCode::OK;
+                return ErrorCode::Ok;
                 break;
             }
         }
@@ -148,14 +169,14 @@ ErrorCode process(std::string input, double* out)
             else
             {
                 *out = map['%'](first, second);
-                return ErrorCode::OK;
+                return ErrorCode::Ok;
                 break;
             }
         }
         case '^':
         {
             *out = map['^'](first, second);
-            return ErrorCode::OK;
+            return ErrorCode::Ok;
             break;
         }
         case '$':
@@ -168,18 +189,37 @@ ErrorCode process(std::string input, double* out)
             else
             {
                 *out = map['$'](first, second);
-                return ErrorCode::OK;
+                return ErrorCode::Ok;
                 break;
             }
         }
         case '!':
         {
-            *out = map['!'](first, second);
-            return ErrorCode::OK;
-            break;
+            if(first != 0 && second == 0)
+            {
+                *out = map['!'](first, second);
+                return ErrorCode::Ok;
+                break;
+            }
+            else if(first == 0 && second != 0)
+            {
+                *out = map['!'](second, first);
+                return ErrorCode::Ok;
+                break;  
+            }
+            else
+            {
+                *out = 1;
+                return ErrorCode::Ok;
+                break;
+            }
         }
         default:
-            return ErrorCode::BadFormat;
+            return ErrorCode::BadCharacter;
             break;
     }
+
 }
+
+
+
