@@ -76,7 +76,7 @@ char seperate(std::string input, double &first, double &second)
         }
         if(is_operation(input[i]) && input[i] != '.')
         {
-            if(f.size() > 0)
+            if(f.size() > 0 && !k)
             {
                 k = !k;
             }
