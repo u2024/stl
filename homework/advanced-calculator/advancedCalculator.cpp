@@ -42,7 +42,7 @@ char seperate(std::string input, double &first, double &second)
     {
         if(isspace(input[i]))
         {
-            if(f.size() > 0)
+            if(f.size() > 0 && !k)
             {
                 k = !k;
             }
