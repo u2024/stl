@@ -81,7 +81,7 @@ char seperate(std::string input, double &first, double &second)
                 operation = input[i];
                 m = !m;
             }
-            else return 'a';
+            else return '0';
         }
         else
         {
