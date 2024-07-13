@@ -44,6 +44,11 @@ char seperate(std::string input, double &first, double &second)
         {
             continue;
         }
+        if(input[i] == ',')
+        {
+            operation = '0';
+            break;
+        }
         else if(isdigit(input[i]) || input[i] == '.' || (input[i] == '-' && isdigit(input[i + 1])))
         {
             if(!k)
