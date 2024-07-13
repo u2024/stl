@@ -42,6 +42,10 @@ char seperate(std::string input, double &first, double &second)
     {
         if(isspace(input[i]))
         {
+            if(f.size() > 0)
+            {
+                k = !k;
+            }
             continue;
         }
         if(input[i] == ',')
@@ -104,6 +108,7 @@ char seperate(std::string input, double &first, double &second)
     if(second < 0 && operation == 'n')
     {
         operation = '-';
+        second = std::abs(second);
     }
     else if(operation == 'n')
     {
