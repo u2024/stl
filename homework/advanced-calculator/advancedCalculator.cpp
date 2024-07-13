@@ -16,11 +16,11 @@ enum class ErrorCode
 
 bool is_operation(char a)
 {
-    if(a != '+' || a != '-' || a != '*' || a != '/' || a != '!' || a != '^' || a != '#' || a != '%')
+    if(a == '+' || a == '-' || a == '*' || a == '/' || a == '!' || a == '^' || a == '$' || a == '%')
     {
-        return false;
+        return true;
     }
-    else return true;
+    else return false;
 }
 
 bool is_integer(double &a)
