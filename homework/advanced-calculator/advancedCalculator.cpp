@@ -35,7 +35,7 @@ bool is_integer(double &a)
 char seperate(std::string input, double &first, double &second)
 {
     char operation = 'n';
-    int kr1 = 0, kr2 = 0; //ile jest kropek w liczbie
+    int kr1 = 0, kr2 = 0, comma = 0; // ile jest kropek w liczbie, ile jest przecinkow
     bool k = false, m = false; // czy op jest na 2 msc, czy op zost pobrana
     std::string f = "", s = "";
     for(long unsigned i = 0; i < input.size(); ++i)
@@ -47,6 +47,10 @@ char seperate(std::string input, double &first, double &second)
                 k = !k;
             }
             continue;
+        }
+        if(input[i] == ',')
+        {
+            ++comma;
         }
         else if(isdigit(input[i]) || input[i] == '.' || (input[i] == '-' && isdigit(input[i + 1]) && !isdigit(input[i - 1])))
         {
@@ -101,7 +105,7 @@ char seperate(std::string input, double &first, double &second)
     {
         second = std::stod(s);
     }
-    if((kr1 == 0 && !is_integer(first)) || (kr2 == 0 && !is_integer(second)))
+    if(comma != 0)
     {
         operation = '0';
     }
