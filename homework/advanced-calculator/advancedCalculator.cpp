@@ -80,6 +80,11 @@ char seperate(std::string input, double &first, double &second)
             {
                 k = !k;
             }
+            if(f.size() == 0 && !k)
+            {
+                operation = '0';
+                break;
+            }
             if(!m)
             {
                 operation = input[i];
