@@ -48,11 +48,6 @@ char seperate(std::string input, double &first, double &second)
             }
             continue;
         }
-        if(input[i] == ',')
-        {
-            operation = '0';
-            break;
-        }
         else if(isdigit(input[i]) || input[i] == '.' || (input[i] == '-' && isdigit(input[i + 1]) && !isdigit(input[i - 1])))
         {
             if(!k)
@@ -105,6 +100,10 @@ char seperate(std::string input, double &first, double &second)
     if(s.size() != 0)
     {
         second = std::stod(s);
+    }
+    if((kr1 == 0 && !is_integer(first)) || (kr2 == 0 && !is_integer(second)))
+    {
+        operation = '0';
     }
     if(operation != '!' && (f == "" || s == ""))
     {
