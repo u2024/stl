@@ -235,9 +235,18 @@ ErrorCode process(std::string input, double* out)
             }
             else
             {
-                *out = map['!'](first, second);
-                return ErrorCode::Ok;
-                break;
+                if(first < 0)
+                {
+                    *out = -map['!'](first, second);
+                    return ErrorCode::Ok;
+                    break;
+                }
+                else
+                {
+                    *out = map['!'](first, second);
+                    return ErrorCode::Ok;
+                    break;
+                }
             }
         }
         default:
