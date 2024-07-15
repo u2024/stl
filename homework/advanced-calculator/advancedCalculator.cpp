@@ -51,8 +51,9 @@ char seperate(std::string input, double &first, double &second)
         if(input[i] == ',')
         {
             ++comma;
+            continue;
         }
-        else if(isdigit(input[i]) || input[i] == '.' || (input[i] == '-' && isdigit(input[i + 1]) && !isdigit(input[i - 1])))
+        if(isdigit(input[i]) || input[i] == '.' || (input[i] == '-' && isdigit(input[i + 1]) && !isdigit(input[i - 1])))
         {
             if(!k)
             {
@@ -73,7 +74,7 @@ char seperate(std::string input, double &first, double &second)
                 continue;
             }
         }
-        if(is_operation(input[i]) && input[i] != '.')
+        if(is_operation(input[i]))
         {
             if(f.size() > 0 && !k)
             {
@@ -89,7 +90,11 @@ char seperate(std::string input, double &first, double &second)
                 operation = input[i];
                 m = !m;
             }
-            else return '0';
+            else
+            {
+                return '0';
+                break;
+            }
         }
         else
         {
@@ -107,7 +112,7 @@ char seperate(std::string input, double &first, double &second)
     }
     if(comma != 0)
     {
-        operation = '0';
+        return '0';
     }
     if(operation != '!' && (f == "" || s == ""))
     {
@@ -192,6 +197,7 @@ ErrorCode process(std::string input, double* out)
             if(!is_integer(first) || !is_integer(second))
             {
                 return ErrorCode::ModuleOfNonIntegerValue;
+                break;
             }
             else
             {
