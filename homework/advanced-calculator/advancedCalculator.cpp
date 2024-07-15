@@ -219,21 +219,14 @@ ErrorCode process(std::string input, double* out)
         }
         case '!':
         {
-            if(first != 0 && second == 0)
+            if(first != 0 && second != 0)
             {
-                *out = map['!'](first, second);
-                return ErrorCode::Ok;
+                return ErrorCode::BadFormat;
                 break;
-            }
-            else if(first == 0 && second != 0)
-            {
-                *out = map['!'](second, first);
-                return ErrorCode::Ok;
-                break;  
             }
             else
             {
-                *out = 1;
+                *out = map['!'](first, second);
                 return ErrorCode::Ok;
                 break;
             }
@@ -242,8 +235,4 @@ ErrorCode process(std::string input, double* out)
             return ErrorCode::BadCharacter;
             break;
     }
-
 }
-
-
-
