@@ -25,8 +25,15 @@ TEST(arithmeticAverageTest, ShouldCalculateArithmeticAverage) {
     expected = 575,111111111;
     EXPECT_NEAR(ArithmeticAverage(first, second), expected, 0.00001);
 
-    first = {1, -1, 2, -2, 3, -3, 4, -4}
-    second = {
+    first = {1, -1, 2, -2, 3, -3, 4, -4};
+    second = {2, 3, 5, 7, 11, 13, 17, 19};
+    expected = 4,8125;
+    EXPECT_NEAR(ArithmeticAverage(first, second), expected, 0.00001);
+
+    first = {4087, 1740, 5502, 7572, 7235};
+    second = {4991, 3441, 5031, 4869, 5083};
+    expected = 4955,1;
+    EXPECT_NEAR(ArithmeticAverage(first, second), expected, 0.00001);    
 }
 
 TEST(arithmeticAverageTest, ShouldCalculateDistance) {
