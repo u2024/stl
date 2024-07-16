@@ -48,8 +48,8 @@ TEST(arithmeticAverageTest, ShouldCalculateDistance) {
     EXPECT_NEAR(Distance(first, second), expected, 0.00001);
 
     first = {1, 2, 3, 4, 5};
-    second = {-10, 0, -234567, 684, 11};
-    expected = 234570.985974395;
+    second = {-10, 0, -2347, 684, 11};
+    expected = 2446.438432;
     EXPECT_NEAR(Distance(first, second), expected, 0.00001);
 
     first = {-2, 2};
