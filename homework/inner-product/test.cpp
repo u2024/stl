@@ -47,14 +47,23 @@ TEST(arithmeticAverageTest, ShouldCalculateDistance) {
     expected = 18.16590212458495;
     EXPECT_NEAR(Distance(first, second), expected, 0.00001);
 
-    first = {7, 4, 3, 13};
-    second = {17, 6, 2, -2};
-    expected = 18.16590212458495;
+    first = {1, 2, 3, 4, 5};
+    second = {-10, 0, -234567, 684, 11};
+    expected = 234570,985974395;
     EXPECT_NEAR(Distance(first, second), expected, 0.00001);
 
-    first = {7, 4, 3, 13};
-    second = {17, 6, 2, -2};
-    expected = 18.16590212458495;
+    first = {-2, 2};
+    second = {0, 1};
+    expected = 2,236067977;
     EXPECT_NEAR(Distance(first, second), expected, 0.00001);
 
+    first = {1, 5, 10};
+    second = {0, 0, 0};
+    expected = 11,22497216;
+    EXPECT_NEAR(Distance(first, second), expected, 0.00001);
+
+    first = {1, 4, 9, 16, 25, 36, 49};
+    second = {3, 1, 4, 1, 5, 9, 2};
+    expected = 60,008332755;
+    EXPECT_NEAR(Distance(first, second), expected, 0.00001);    
 }
